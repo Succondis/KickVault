@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — KickVault</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">KICK<span>VAULT</span></a>
+      <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search sneakers, brands..." />
+        <button onclick="handleSearch()">&#128269;</button>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="browse.html" class="active">Browse</a>
+        <a href="sell.html">Sell</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#" class="nav-cart" onclick="openCart()">&#128092; <span id="cartCount">0</span></a>
+        <a href="login.html" class="btn-nav">Sign In</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="sell.html">Sell</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="login.html">Sign In</a>
+    </div>
+  </nav>
+
+  <div class="product-page" id="productPage">
+    <!-- Filled by JS -->
+  </div>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"><p class="cart-empty">Your cart is empty.</p></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <span id="cartTotal">£0.00</span></div>
+      <a href="checkout.html" class="btn-primary" style="display:block;text-align:center;margin-top:12px">Checkout</a>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

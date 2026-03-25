@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KickVault — Buy & Sell Sneakers</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">KICK<span>VAULT</span></a>
+      <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search sneakers, brands..." />
+        <button onclick="handleSearch()">&#128269;</button>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="sell.html">Sell</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#" class="nav-cart" onclick="openCart()">&#128092; <span id="cartCount">0</span></a>
+        <a href="login.html" class="btn-nav">Sign In</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="sell.html">Sell</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="login.html">Sign In</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Authenticated. Guaranteed.</p>
+      <h1>The Market for<br /><span>Premium Sneakers</span></h1>
+      <p class="hero-sub">Buy and sell the most coveted kicks in the world. Every pair verified by our experts.</p>
+      <div class="hero-cta">
+        <a href="browse.html" class="btn-primary">Shop Now</a>
+        <a href="sell.html" class="btn-secondary">Start Selling</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>2.4M+</span><p>Pairs Sold</p></div>
+        <div class="stat"><span>$0</span><p>Buyer Fees</p></div>
+        <div class="stat"><span>100%</span><p>Authenticated</p></div>
+      </div>
+    </div>
+    <div class="hero-shoe">
+      <img src="images/hero-shoe.png" alt="Hero Sneaker" onerror="this.src='https://placehold.co/600x400/111/ffffff?text=PLACE+SHOE+IMAGE+HERE'" />
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Air Jordan 1 Retro High OG &nbsp;↑ $245 &nbsp;•&nbsp;</span>
+      <span>Nike Dunk Low Panda &nbsp;↓ $120 &nbsp;•&nbsp;</span>
+      <span>Yeezy 350 V2 Zebra &nbsp;↑ $310 &nbsp;•&nbsp;</span>
+      <span>New Balance 550 White &nbsp;↑ $95 &nbsp;•&nbsp;</span>
+      <span>Travis Scott x Nike &nbsp;↑ $650 &nbsp;•&nbsp;</span>
+      <span>Adidas Samba OG &nbsp;↓ $105 &nbsp;•&nbsp;</span>
+      <span>Jordan 4 Bred Reimagined &nbsp;↑ $480 &nbsp;•&nbsp;</span>
+      <span>Asics Gel-Kayano 14 &nbsp;↑ $140 &nbsp;•&nbsp;</span>
+      <span>Air Jordan 1 Retro High OG &nbsp;↑ $245 &nbsp;•&nbsp;</span>
+      <span>Nike Dunk Low Panda &nbsp;↓ $120 &nbsp;•&nbsp;</span>
+      <span>Yeezy 350 V2 Zebra &nbsp;↑ $310 &nbsp;•&nbsp;</span>
+      <span>New Balance 550 White &nbsp;↑ $95 &nbsp;•&nbsp;</span>
+      <span>Travis Scott x Nike &nbsp;↑ $650 &nbsp;•&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- TRENDING -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Trending Now</h2>
+      <a href="browse.html">View All →</a>
+    </div>
+    <div class="product-grid" id="trendingGrid"></div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories-section">
+    <h2>Shop by Brand</h2>
+    <div class="categories-grid">
+      <a href="browse.html?brand=Nike" class="cat-card" style="--accent:#ff6b35">
+        <div class="cat-img"><img src="images/brand-nike.png" onerror="this.src='https://placehold.co/200x120/111/ff6b35?text=NIKE'" alt="Nike"/></div>
+        <span>Nike</span>
+      </a>
+      <a href="browse.html?brand=Jordan" class="cat-card" style="--accent:#e63946">
+        <div class="cat-img"><img src="images/brand-jordan.png" onerror="this.src='https://placehold.co/200x120/111/e63946?text=JORDAN'" alt="Jordan"/></div>
+        <span>Jordan</span>
+      </a>
+      <a href="browse.html?brand=Adidas" class="cat-card" style="--accent:#4cc9f0">
+        <div class="cat-img"><img src="images/brand-adidas.png" onerror="this.src='https://placehold.co/200x120/111/4cc9f0?text=ADIDAS'" alt="Adidas"/></div>
+        <span>Adidas</span>
+      </a>
+      <a href="browse.html?brand=Yeezy" class="cat-card" style="--accent:#f4d58d">
+        <div class="cat-img"><img src="images/brand-yeezy.png" onerror="this.src='https://placehold.co/200x120/111/f4d58d?text=YEEZY'" alt="Yeezy"/></div>
+        <span>Yeezy</span>
+      </a>
+      <a href="browse.html?brand=New Balance" class="cat-card" style="--accent:#80ed99">
+        <div class="cat-img"><img src="images/brand-nb.png" onerror="this.src='https://placehold.co/200x120/111/80ed99?text=NEW+BALANCE'" alt="New Balance"/></div>
+        <span>New Balance</span>
+      </a>
+      <a href="browse.html?brand=Asics" class="cat-card" style="--accent:#c77dff">
+        <div class="cat-img"><img src="images/brand-asics.png" onerror="this.src='https://placehold.co/200x120/111/c77dff?text=ASICS'" alt="Asics"/></div>
+        <span>Asics</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- HOT DEALS -->
+  <section class="section">
+    <div class="section-header">
+      <h2>🔥 Highest Movers</h2>
+      <a href="browse.html?sort=trending">View All →</a>
+    </div>
+    <div class="product-grid" id="hotGrid"></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <h2>How KickVault Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Find Your Pair</h3>
+        <p>Browse thousands of sneakers with real-time market prices and historical data.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Place Your Bid</h3>
+        <p>Buy instantly at the ask price or place a bid to get your target price.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>We Authenticate</h3>
+        <p>Every pair is shipped to our verification centre and checked by experts.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Delivered to You</h3>
+        <p>Authenticated kicks land at your door with our KickVault seal of approval.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">KICK<span>VAULT</span></a>
+        <p>The world's most trusted sneaker marketplace. Every pair authenticated.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Marketplace</h4>
+          <a href="browse.html">Buy Sneakers</a>
+          <a href="sell.html">Sell Sneakers</a>
+          <a href="browse.html">New Releases</a>
+          <a href="portfolio.html">My Portfolio</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Authentication</a>
+          <a href="#">Press</a>
+          <a href="#">Careers</a>
+        </div>
+        <div>
+          <h4>Help</h4>
+          <a href="#">How It Works</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 KickVault. All rights reserved. Prices shown are in GBP.</p>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"><p class="cart-empty">Your cart is empty.</p></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <span id="cartTotal">£0.00</span></div>
+      <a href="checkout.html" class="btn-primary" style="display:block;text-align:center;margin-top:12px">Checkout</a>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    renderGrid('trendingGrid', products.slice(0, 8));
+    renderGrid('hotGrid', [...products].sort((a,b) => b.change - a.change).slice(0, 8));
+  </script>
+</body>
+</html>

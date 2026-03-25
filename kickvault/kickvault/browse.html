@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse — KickVault</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">KICK<span>VAULT</span></a>
+      <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search sneakers, brands..." />
+        <button onclick="handleSearch()">&#128269;</button>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="browse.html" class="active">Browse</a>
+        <a href="sell.html">Sell</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#" class="nav-cart" onclick="openCart()">&#128092; <span id="cartCount">0</span></a>
+        <a href="login.html" class="btn-nav">Sign In</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="sell.html">Sell</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="login.html">Sign In</a>
+    </div>
+  </nav>
+
+  <div class="browse-page">
+    <!-- FILTERS -->
+    <aside class="filters">
+      <h3>Filters</h3>
+
+      <div class="filter-group">
+        <label>Brand</label>
+        <div class="filter-checkboxes" id="brandFilters">
+          <label><input type="checkbox" value="Nike" onchange="applyFilters()"> Nike</label>
+          <label><input type="checkbox" value="Jordan" onchange="applyFilters()"> Jordan</label>
+          <label><input type="checkbox" value="Adidas" onchange="applyFilters()"> Adidas</label>
+          <label><input type="checkbox" value="Yeezy" onchange="applyFilters()"> Yeezy</label>
+          <label><input type="checkbox" value="New Balance" onchange="applyFilters()"> New Balance</label>
+          <label><input type="checkbox" value="Asics" onchange="applyFilters()"> Asics</label>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Size (UK)</label>
+        <div class="size-grid" id="sizeFilters">
+          <button class="size-btn" onclick="toggleSize(this,'6')">6</button>
+          <button class="size-btn" onclick="toggleSize(this,'6.5')">6.5</button>
+          <button class="size-btn" onclick="toggleSize(this,'7')">7</button>
+          <button class="size-btn" onclick="toggleSize(this,'7.5')">7.5</button>
+          <button class="size-btn" onclick="toggleSize(this,'8')">8</button>
+          <button class="size-btn" onclick="toggleSize(this,'8.5')">8.5</button>
+          <button class="size-btn" onclick="toggleSize(this,'9')">9</button>
+          <button class="size-btn" onclick="toggleSize(this,'9.5')">9.5</button>
+          <button class="size-btn" onclick="toggleSize(this,'10')">10</button>
+          <button class="size-btn" onclick="toggleSize(this,'10.5')">10.5</button>
+          <button class="size-btn" onclick="toggleSize(this,'11')">11</button>
+          <button class="size-btn" onclick="toggleSize(this,'12')">12</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label>Max Price: <span id="priceVal">£1000</span></label>
+        <input type="range" min="50" max="2000" value="1000" id="priceRange" oninput="updatePrice(this.value)" />
+      </div>
+
+      <div class="filter-group">
+        <label>Condition</label>
+        <div class="filter-checkboxes">
+          <label><input type="checkbox" value="New" onchange="applyFilters()"> New</label>
+          <label><input type="checkbox" value="Used" onchange="applyFilters()"> Used</label>
+        </div>
+      </div>
+
+      <button class="btn-clear" onclick="clearFilters()">Clear All Filters</button>
+    </aside>
+
+    <!-- RESULTS -->
+    <div class="browse-results">
+      <div class="browse-top">
+        <h2 id="resultCount">All Sneakers</h2>
+        <div class="sort-bar">
+          <select id="sortSelect" onchange="applyFilters()">
+            <option value="default">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="change">Biggest Movers</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+      <div class="product-grid wide" id="browseGrid"></div>
+    </div>
+  </div>
+
+  <!-- CART -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"><p class="cart-empty">Your cart is empty.</p></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: <span id="cartTotal">£0.00</span></div>
+      <a href="checkout.html" class="btn-primary" style="display:block;text-align:center;margin-top:12px">Checkout</a>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/browse.js"></script>
+</body>
+</html>
